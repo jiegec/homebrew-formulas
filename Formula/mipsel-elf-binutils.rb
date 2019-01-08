@@ -1,9 +1,9 @@
 class MipselElfBinutils < Formula
   desc "GNU Binutils targetting mipsel-elf"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://sourceware.org/pub/binutils/releases/binutils-2.30.tar.xz"
-  version "2.30"
-  sha256 "6e46b8aeae2f727a36f0bd9505e405768a72218f1796f0d09757d45209871ae6"
+  url "https://sourceware.org/pub/binutils/releases/binutils-2.31.1.tar.xz"
+  version "2.31.1"
+  sha256 "5d20086ecf5752cc7d9134246e9588fa201740d540f7eb84d795b1f7a93bca86"
 
   def install
     mkdir "binutils-build" do
