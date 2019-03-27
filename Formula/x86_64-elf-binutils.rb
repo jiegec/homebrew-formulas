@@ -1,18 +1,24 @@
 class X8664ElfBinutils < Formula
   desc "GNU Binutils targetting x86_64-elf"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://sourceware.org/pub/binutils/releases/binutils-2.31.1.tar.xz"
-  version "2.31.1"
-  sha256 "5d20086ecf5752cc7d9134246e9588fa201740d540f7eb84d795b1f7a93bca86"
+  url "https://sourceware.org/pub/binutils/releases/binutils-2.32.tar.xz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.32.tar.gz"
+  version "2.32"
+  sha256 "0ab6c55dd86a92ed561972ba15b9b70a8b9f75557f896446c82e8b36e473ee04"
 
   def install
     mkdir "binutils-build" do
       system "../configure", "--prefix=#{prefix}",
+                             "--infodir=#{info}",
+                             "--mandir=#{man}",
                              "--target=x86_64-elf",
+                             "--enable-deterministic-archives",
+                             "--disable-debug",
+                             "--disable-dependency-tracking",
                              "--disable-multilib",
                              "--disable-nls",
                              "--disable-werror"
-      system "make", "-j2"
+      system "make"
       system "make", "install"
     end
   end
