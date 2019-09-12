@@ -21,6 +21,9 @@ class Riscv64ElfBinutils < Formula
       system "make"
       system "make", "install"
     end
+
+    info.rmtree
+    man1.rmtree
   end
 
   test do

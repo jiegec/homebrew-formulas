@@ -1,4 +1,4 @@
-class MipselElfBinutils < Formula
+class ArmNoneEabiBinutils < Formula
   desc "GNU Binutils targetting mipsel-elf"
   homepage "https://www.gnu.org/software/binutils/"
   url "https://sourceware.org/pub/binutils/releases/binutils-2.32.tar.xz"
@@ -11,7 +11,7 @@ class MipselElfBinutils < Formula
       system "../configure", "--prefix=#{prefix}",
                              "--infodir=#{info}",
                              "--mandir=#{man}",
-                             "--target=mipsel-elf",
+                             "--target=arm-none-eabi",
                              "--enable-deterministic-archives",
                              "--disable-debug",
                              "--disable-dependency-tracking",
