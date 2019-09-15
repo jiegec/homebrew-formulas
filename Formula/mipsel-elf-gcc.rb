@@ -1,13 +1,14 @@
 class MipselElfGcc < Formula
   desc "GNU Compiler Collection targetting mipsel-elf"
   homepage "https://gcc.gnu.org"
-  url "http://ftpmirror.gnu.org/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
-  version "7.3.0"
-  sha256 "832ca6ae04636adbb430e865a1451adf6979ab44ca1c8374f61fba65645ce15c"
+  url "http://ftpmirror.gnu.org/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
+  version "8.3.0"
+  sha256 "64baadfe6cc0f4947a84cb12d7f0dfaf45bb58b7e92461639596c21e02d97d2c"
 
   depends_on "gmp" => :build
   depends_on "mipsel-elf-binutils"
   depends_on "libmpc"
+  depends_on "gnu-sed"
   depends_on "mpfr" => :build
 
   def install
@@ -19,18 +20,14 @@ class MipselElfGcc < Formula
                              "--disable-werror",
                              "--without-headers",
                              "--without-isl",
+                             "--with-as=#{Formula["mipsel-elf-binutils"].bin}/mipsel-elf-as",
+                             "--with-ld=#{Formula["mipsel-elf-binutils"].bin}/mipsel-elf-ld",
                              "--enable-languages=c,c++"
 
       system "make", "all-gcc"
       system "make", "install-gcc"
       system "make", "all-target-libgcc"
       system "make", "install-target-libgcc"
-
-      # GCC needs this folder in #{prefix} in order to see the binutils.
-      # It doesn't look for mipsel-elf-as on $PREFIX/bin. Rather, it looks
-      # for as on $PREFIX/$TARGET/bin/ ($PREFIX/mipsel-elf/bin/as).
-      binutils = Formula["mipsel-elf-binutils"].prefix
-      FileUtils.ln_sf "#{binutils}/mipsel-elf", "#{prefix}/mipsel-elf"
     end
 
   end
