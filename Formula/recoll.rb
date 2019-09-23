@@ -1,8 +1,8 @@
 class Recoll < Formula
   desc "Recoll is a desktop full-text search tool."
   homepage "https://www.lesbonscomptes.com/recoll/"
-  url "https://www.lesbonscomptes.com/recoll/recoll-1.25.10.tar.gz"
-  sha256 "cd904f6f981952a5c500c7eaff7508fe697e4e3f348ef7835d2b7a344a26eaf3"
+  url "https://www.lesbonscomptes.com/recoll/recoll-1.25.22.tar.gz"
+  sha256 "500d114952aa03c222847df8ecd0f9c58fc1d03b940df72de81e02e52ca905bc"
 
   depends_on "xapian"
   depends_on "qt"
