@@ -5,6 +5,7 @@ Homebrew formulae included:
 
   1. Cross compiling toolchains (arm-none-eabi-binutils, mipsel-elf-{binutils,gcc,gdb}, mipsel-linux-musl, riscv64-{unknown-elf,elf-binutils},x86_64-elf-{binutils,gcc}).
   2. Recoll, a desktop full-text search tool.
+  3. OpenOCD for RISC-V.
 
 ## What's tested
 
@@ -16,3 +17,4 @@ Homebrew formulae included:
 6. recoll
 7. x86_64-elf-binutils
 8. x86_64-elf-gcc
+9. riscv-openocd
