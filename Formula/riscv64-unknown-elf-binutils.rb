@@ -1,17 +1,17 @@
-class Riscv64ElfBinutils < Formula
-  desc "GNU Binutils targetting riscv64-elf"
+class Riscv64UnknownElfBinutils < Formula
+  desc "GNU Binutils targetting riscv64-unknown-elf"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://sourceware.org/pub/binutils/releases/binutils-2.32.tar.xz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.32.tar.gz"
-  version "2.32"
-  sha256 "0ab6c55dd86a92ed561972ba15b9b70a8b9f75557f896446c82e8b36e473ee04"
+  url "https://sourceware.org/pub/binutils/releases/binutils-2.37.tar.xz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.37.tar.gz"
+  version "2.37"
+  sha256 "820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c"
 
   def install
     mkdir "binutils-build" do
       system "../configure", "--prefix=#{prefix}",
                              "--infodir=#{info}",
                              "--mandir=#{man}",
-                             "--target=riscv64-elf",
+                             "--target=riscv64-unknown-elf",
                              "--enable-deterministic-archives",
                              "--disable-debug",
                              "--disable-dependency-tracking",
@@ -27,6 +27,6 @@ class Riscv64ElfBinutils < Formula
   end
 
   test do
-    system "riscv64-elf-as", "--version"
+    system "riscv64-unknown-elf-as", "--version"
   end
 end
